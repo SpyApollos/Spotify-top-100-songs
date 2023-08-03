@@ -1,0 +1,42 @@
+As numberofapperances
+
+SELECT  
+      artists,
+
+  COUNT(artists)  AS numberofapperances
+ FROM `spotify_top_100_2018.top_2018`
+ GROUP BY
+ 1
+ ORDER BY
+ 2 desc
+Are there more artists in the Top 100 with 'Lil' in their name, or with 'DJ' in their name
+SELECT
+    "Lil" AS Type,
+    COUNT(DISTINCT artists) AS numberofArtist
+FROM
+    `spotify_top_100_2018.top_2018`
+WHERE 
+    (artists) Like "%Lil%"
+GROUP BY 
+  1
+UNION ALL
+
+SELECT
+    "DJ" AS Type,
+    COUNT(DISTINCT artists) AS numberofArtist
+FROM
+    `spotify_top_100_2018.top_2018`
+WHERE 
+    (artists) Like "%DJ%"
+GROUP BY
+    1
+
+
+
+
+
+
+
+
+
+
